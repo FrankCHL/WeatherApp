@@ -54,6 +54,7 @@ dependencies {
 
     val paging_version = "3.2.1"
 
+    implementation("io.insert-koin:koin-android:3.1.2")
     implementation("androidx.paging:paging-runtime:$paging_version")
     implementation("androidx.paging:paging-rxjava2:$paging_version")
     implementation("androidx.paging:paging-rxjava3:$paging_version")

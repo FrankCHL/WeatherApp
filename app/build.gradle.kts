@@ -53,7 +53,12 @@ android {
 dependencies {
 
     val paging_version = "3.2.1"
+    val composeBom = platform("androidx.compose:compose-bom:2023.09.02")
 
+    implementation(composeBom)
+
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    implementation("androidx.compose.ui:ui-tooling-preview")
     implementation("io.insert-koin:koin-android:3.1.2")
     implementation("androidx.paging:paging-runtime:$paging_version")
     implementation("androidx.paging:paging-rxjava2:$paging_version")

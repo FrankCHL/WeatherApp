@@ -53,6 +53,7 @@ android {
 dependencies {
 
     val paging_version = "3.2.1"
+    val compose_version = "1.1.0"
 
     implementation("io.insert-koin:koin-android:3.1.2")
     implementation("androidx.paging:paging-runtime:$paging_version")
@@ -82,4 +83,10 @@ dependencies {
     androidTestImplementation(libs.ui.test.junit4)
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
+
+    implementation("androidx.compose.ui:ui-tooling:$compose_version")
+    debugImplementation("androidx.compose.ui:ui-tooling-preview:$compose_version")
+
+    implementation("androidx.compose.ui:ui-tooling")
+    debugImplementation("androidx.compose.ui:ui-tooling-preview")
 }

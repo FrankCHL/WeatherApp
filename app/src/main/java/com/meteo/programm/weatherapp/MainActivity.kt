@@ -3,44 +3,122 @@ package com.meteo.programm.weatherapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.meteo.programm.weatherapp.ui.theme.WeatherAppTheme
 
 open class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             WeatherAppTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                Scaffold(
+                    // лямбды
+                    content = { innerPadding ->
+                        Column(
+                            modifier = Modifier.padding(innerPadding)
+                        ) {
+                            AboutScreen()
+                        }
+                    })
+            }
+        }
+    }
+
+    @Composable
+    fun AboutScreen() {
+        Box(
+            modifier = Modifier.fillMaxSize(),
+            contentAlignment = Alignment.Center
+        ) {
+            Surface(
+                modifier = Modifier.fillMaxSize(),
+                color = Color.White
+            ) {
+                Column(
+                    modifier = Modifier.padding(16.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Greeting("Android")
+                    Text(
+                        text = "О приложении",
+                        style = MaterialTheme.typography.headlineMedium,
+                        color = Color.Black,
+                        modifier = Modifier.padding(bottom = 16.dp)
+                    )
+                    Image(
+                        painter = painterResource(id = R.drawable.icon),
+                        contentDescription = null,
+                        modifier = Modifier.size(128.dp)
+                    )
+                    Text(
+                        text = "Версия 1.0",
+                        style = MaterialTheme.typography.headlineMedium,
+                        color = Color.Black,
+                        modifier = Modifier.padding(top = 16.dp)
+                    )
+                    Row(
+                        modifier = Modifier.padding(top = 16.dp),
+                        horizontalArrangement = Arrangement.Center
+                    ) {
+                        Button(onClick = { /* Do something */ }) {
+                            Text("Кнопка")
+                        }
+                    }
+                    Card(
+                        modifier = Modifier.padding(top = 16.dp),
+                        elevation = CardDefaults.cardElevation(
+                            defaultElevation = 4.dp
+                        )
+                    ) {
+                        Column(
+                            modifier = Modifier.padding(16.dp)
+                        ) {
+                            Text("Карточка")
+                            Image(
+                                painter = painterResource(id = R.drawable.icon),
+                                contentDescription = null,
+                                modifier = Modifier.size(128.dp)
+                            )
+                            Icon(Icons.Default.Favorite, contentDescription = null)
+                        }
+                    }
                 }
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello niggers!",
-        modifier = modifier
-    )
-}
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun AboutScreenPreview() {
     WeatherAppTheme {
-        Greeting("Android")
+        AboutScreen()
     }
+}
 }

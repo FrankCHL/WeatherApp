@@ -21,10 +21,8 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="480dp"
+        android:layout_height="478dp"
         android:rotationX="58"
-        android:visibility="visible"
-        app:srcCompat="@drawable/shailushai"
-        tools:visibility="visible" />
+        android:src="@drawable/shailushai" />
 
 </LinearLayout>

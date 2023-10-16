@@ -11,6 +11,7 @@ compose-bom = "2023.03.00"
 accompanist = "0.32.0"
 coil = "2.2.2"
 koin = "3.5.0"
+appcompat = "1.6.1"
 
 [libraries]
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
@@ -71,6 +72,7 @@ paging-common = {group= "androidx.paging",name="paging-common-ktx",version="3.1.
 paging-runtime-ktx = {group= "androidx.paging",name="paging-runtime-ktx",version="3.1.0-alpha02"}
 room-ktx = {group= "androidx.room",name="room-ktx",version="2.4.0-beta01"}
 room-runtime = {group= "androidx.room",name="room-runtime",version="2.4.0-beta01"}
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

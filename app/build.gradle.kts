@@ -52,6 +52,7 @@ android {
 
 dependencies {
 
+    implementation(libs.androidx.appcompat)
     val paging_version = "3.2.1"
     val compose_version = "1.1.0"
 

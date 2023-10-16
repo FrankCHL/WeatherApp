@@ -30,8 +30,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.meteo.programm.weatherapp.ui.theme.WeatherAppTheme
+import android.media.MediaPlayer
+import android.net.Uri
 
-open class MainActivity : ComponentActivity() {
+open class MainActivity : ComponentActivity()  {
+
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +56,7 @@ open class MainActivity : ComponentActivity() {
 
     @Composable
     fun AboutScreen() {
+        var mp = MediaPlayer()
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
@@ -66,13 +70,13 @@ open class MainActivity : ComponentActivity() {
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = "О приложении",
+                        text = "NEGRO COOL",
                         style = MaterialTheme.typography.headlineMedium,
                         color = Color.Black,
                         modifier = Modifier.padding(bottom = 16.dp)
                     )
                     Image(
-                        painter = painterResource(id = R.drawable.icon),
+                        painter = painterResource(id = R.drawable.shailushai),
                         contentDescription = null,
                         modifier = Modifier.size(128.dp)
                     )
@@ -86,8 +90,9 @@ open class MainActivity : ComponentActivity() {
                         modifier = Modifier.padding(top = 16.dp),
                         horizontalArrangement = Arrangement.Center
                     ) {
-                        Button(onClick = { /* Do something */ }) {
-                            Text("Кнопка")
+                        Button(onClick = {
+                        }) {
+                            Text("ШАЙЛУШАЙ")
                         }
                     }
                     Card(
@@ -101,7 +106,7 @@ open class MainActivity : ComponentActivity() {
                         ) {
                             Text("Карточка")
                             Image(
-                                painter = painterResource(id = R.drawable.icon),
+                                painter = painterResource(id = R.drawable.shailushai),
                                 contentDescription = null,
                                 modifier = Modifier.size(128.dp)
                             )
@@ -118,7 +123,4 @@ open class MainActivity : ComponentActivity() {
 @Composable
 fun AboutScreenPreview() {
     WeatherAppTheme {
-        AboutScreen()
-    }
-}
-}
+      AboutScreen()}}}

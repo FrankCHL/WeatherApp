@@ -32,6 +32,16 @@ import androidx.compose.ui.unit.dp
 import com.meteo.programm.weatherapp.ui.theme.WeatherAppTheme
 import android.media.MediaPlayer
 import android.net.Uri
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.icons.filled.Call
+import androidx.compose.material.icons.filled.Warning
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.graphics.Shape
 
 open class MainActivity : ComponentActivity()  {
 
@@ -56,66 +66,19 @@ open class MainActivity : ComponentActivity()  {
 
     @Composable
     fun AboutScreen() {
-        var mp = MediaPlayer()
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ) {
-            Surface(
-                modifier = Modifier.fillMaxSize(),
-                color = Color.White
-            ) {
-                Column(
-                    modifier = Modifier.padding(16.dp),
-                    horizontalAlignment = Alignment.CenterHorizontally
-                ) {
-                    Text(
-                        text = "NEGRO COOL",
-                        style = MaterialTheme.typography.headlineMedium,
-                        color = Color.Black,
-                        modifier = Modifier.padding(bottom = 16.dp)
-                    )
-                    Image(
-                        painter = painterResource(id = R.drawable.shailushai),
-                        contentDescription = null,
-                        modifier = Modifier.size(128.dp)
-                    )
-                    Text(
-                        text = "Версия 1.0",
-                        style = MaterialTheme.typography.headlineMedium,
-                        color = Color.Black,
-                        modifier = Modifier.padding(top = 16.dp)
-                    )
-                    Row(
-                        modifier = Modifier.padding(top = 16.dp),
-                        horizontalArrangement = Arrangement.Center
-                    ) {
-                        Button(onClick = {
-                        }) {
-                            Text("ШАЙЛУШАЙ")
-                        }
-                    }
-                    Card(
-                        modifier = Modifier.padding(top = 16.dp),
-                        elevation = CardDefaults.cardElevation(
-                            defaultElevation = 4.dp
-                        )
-                    ) {
-                        Column(
-                            modifier = Modifier.padding(16.dp)
-                        ) {
-                            Text("Карточка")
-                            Image(
-                                painter = painterResource(id = R.drawable.shailushai),
-                                contentDescription = null,
-                                modifier = Modifier.size(128.dp)
-                            )
-                            Icon(Icons.Default.Favorite, contentDescription = null)
-                        }
-                    }
-                }
+        var array_of_text = arrayOf("Its cool","Try hard!","Find a job already")
+        var array_of_icons = arrayOf(Icons.Filled.Warning,Icons.Filled.Favorite,Icons.Filled.Call)
+                Column(modifier = Modifier.fillMaxWidth()
+                    .fillMaxHeight(0.5f), horizontalAlignment = Alignment.End, verticalArrangement = Arrangement.Bottom) {
+                    for (i in 0..2){
+                        Row(modifier = Modifier.background(color = Color.Blue, shape = RectangleShape) ) {
+                            Icon(array_of_icons[i], contentDescription = null)
+                            Text(text = array_of_text[i])
+            }
+
             }
         }
+
     }
 
 

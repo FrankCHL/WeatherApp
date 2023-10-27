@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -13,13 +14,18 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.core.view.WindowCompat
+import com.meteo.programm.weatherapp.R
 
 private val DarkColorScheme = darkColorScheme(
     primary = Purple80,
     secondary = PurpleGrey80,
     tertiary = Pink80
+
 )
 
 private val LightColorScheme = lightColorScheme(
@@ -37,6 +43,22 @@ private val LightColorScheme = lightColorScheme(
     onSurface = Color(0xFF1C1B1F),
     */
 )
+
+private val appFontFamily = FontFamily(
+    fonts = listOf(
+        Font(
+            resId = R.font.eight_bits,
+            weight = FontWeight.W400,
+            style = FontStyle.Normal
+        ),
+)
+)
+private val defaultTypography = Typography()
+val appTypography = Typography(
+    displayMedium = defaultTypography.displayMedium.copy(fontFamily = appFontFamily),
+
+)
+
 
 @Composable
 fun WeatherAppTheme(
@@ -65,7 +87,7 @@ fun WeatherAppTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = appTypography,
         content = content
     )
 }
